@@ -4,11 +4,22 @@
 }
 
 .background-black {
-    -fx-background-color: #000000;
+    -fx-background-color: #61888c;
+}
+
+.background-light-grey {
+    -fx-background-color: #5E7A7D;
+}
+
+.background-grey {
+    -fx-background-color: #6F6464;
+}
+.background-blue {
+    -fx-background-color: #4AAFE1;
 }
 
 .background-light-black {
-    -fx-background-color: #454545;
+    -fx-background-color: #232628;
 }
 
 .text-yellow {
