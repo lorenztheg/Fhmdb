@@ -7,19 +7,20 @@
     -fx-background-color: #61888c;
 }
 
-.background-light-grey {
-    -fx-background-color: #5E7A7D;
+.background-light-black {
+    -fx-background-color: #232628;
 }
 
 .background-grey {
     -fx-background-color: #6F6464;
 }
-.background-blue {
-    -fx-background-color: #4AAFE1;
+
+.background-light-grey {
+    -fx-background-color: #5E7A7D;
 }
 
-.background-light-black {
-    -fx-background-color: #232628;
+.background-blue {
+    -fx-background-color: #4AAFE1;
 }
 
 .text-yellow {
@@ -28,6 +29,10 @@
 
 .text-white {
     -fx-text-fill: #ffffff;
+}
+
+.text-light-grey {
+    -fx-text-fill: #B3B3B3;
 }
 
 .list-view .list-cell:even {
