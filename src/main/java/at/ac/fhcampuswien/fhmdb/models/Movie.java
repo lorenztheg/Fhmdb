@@ -30,6 +30,19 @@ public class Movie {
         return genres;
     }
 
+    @Override
+    public boolean equals(Object object){
+        if(object == null){
+            return false;
+        }
+        if (object == this){
+            return true;
+        }
+        if(!(object instanceof Movie other)){
+            return false;
+        }
+        return this.title.equals(other.title) && this.description.equals(other.description) && this.genres.equals(other.genres);
+    }
 
     public static List<Movie> initializeMovies(){
         List<Movie> movies = new ArrayList<>();
