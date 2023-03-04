@@ -1,6 +1,5 @@
 package at.ac.fhcampuswien.fhmdb;
 
-import at.ac.fhcampuswien.fhmdb.models.Genre;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import at.ac.fhcampuswien.fhmdb.models.SortState;
 import org.junit.jupiter.api.BeforeAll;
@@ -42,5 +41,54 @@ class HomeControllerTest {
         );
         //assertEquals();
     }
+    @Test
+    void movies_are_sorted_correctly_with_current_sortState_descending_then_ascending() {
+            //GIVEN
+            homeController.initializeState();
+            homeController.sortState = SortState.DESCENDING;
 
+
+            //WHEN
+            homeController.sortMovies();
+
+            //THEN
+            List<Movie> expected = Arrays.asList(
+
+            );
+    }
+    @Test
+    void movies_are_sorted_correctly_with_current_sortState_ascending_then_descending() {
+        //GIVEN
+        homeController.initializeState();
+        homeController.sortState = SortState.ASCENDING;
+
+
+        //WHEN
+        homeController.sortMovies();
+
+        //THEN
+        List<Movie> expected = Arrays.asList(
+
+        );
+    }
+
+    @Test
+    void movies_search_for_title_and_description(){
+
+    }
+
+    @Test
+    void movies_search_for_title_and_description_ignore_case(){
+
+    }
+
+    @Test
+    void movies_filter_by_title_description_and_genre(){
+
+    }
+
+    @Test
+    void movies_filter_by_title_description_and_genre_with_no_matches(){
+
+    }
 }
