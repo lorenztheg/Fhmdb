@@ -53,6 +53,13 @@ public class Movie {
         List<Genre> deadpoolGenres = Arrays.asList(Genre.ACTION, Genre.ADVENTURE, Genre.COMEDY);
         List<Genre> suicideSquadGenres = Arrays.asList(Genre.ACTION, Genre.ADVENTURE, Genre.FANTASY);
         List<Genre> backToTheFutureGenres = Arrays.asList(Genre.ADVENTURE, Genre.COMEDY, Genre.SCIENCE_FICTION);
+        List<Genre> shiningGenres = Arrays.asList(Genre.HORROR, Genre.THRILLER, Genre.MYSTERY);
+        List<Genre> willywonkaGenres = Arrays.asList(Genre.FAMILY, Genre.MUSICAL, Genre.ADVENTURE);
+        List<Genre> michaeljacksonGenres = Arrays.asList(Genre.DOCUMENTARY, Genre.BIOGRAPHY, Genre.MUSICAL);
+        List<Genre> allquietGenres = Arrays.asList(Genre.HISTORY, Genre.WAR, Genre.THRILLER);
+        List<Genre> toystoryGenres = Arrays.asList(Genre.FAMILY, Genre.ANIMATION);
+        List<Genre> rushGenres = Arrays.asList(Genre.DOCUMENTARY, Genre.SPORT, Genre.DRAMA);
+        List<Genre> titanicGenres = Arrays.asList(Genre.DRAMA, Genre.ROMANCE);
 
         movies.add(new Movie("The Dark Knight","A superhero battles a criminal mastermind.", darkKnightGenres));
         movies.add(new Movie("Fight Club", "An office worker starts a fight club.", fightClubGenres));
@@ -60,6 +67,13 @@ public class Movie {
         movies.add(new Movie("Deadpool", "A former special forces operative seeks revenge.", deadpoolGenres));
         movies.add(new Movie("Suicide Squad", "A team of super-villains are sent on a dangerous mission.", suicideSquadGenres));
         movies.add(new Movie("Back to the Future", "A high school student travels back in time.", backToTheFutureGenres));
+        movies.add(new Movie("Shining", "An isolated hotel becomes a haunting prison for a family.", shiningGenres));
+        movies.add(new Movie("Willy Wonka & the Chocolate Factory", "A poor boy wins a golden ticket to tour a magical chocolate factory run by a candy maker", willywonkaGenres));
+        movies.add(new Movie("Michael Jacksons's This Is It", "BTS footage of Michael Jackson's preparation for his planned concert series before his untimely death", michaeljacksonGenres));
+        movies.add(new Movie("All Quiet on the Western Front","A group of young german soldiers experience the horros and disillusionment of World War I", allquietGenres));
+        movies.add(new Movie("Toy Story 3","Join Woody, Buzz and their friends as they embark on a daring adventure to escape a daycare center and reunite with their owner", toystoryGenres));
+        movies.add(new Movie("Rush", "Two fierce Formula One drivers battle for the world championship in the biographical sports drama", rushGenres));
+        movies.add(new Movie("Titanic", "A wealthy woman and a poor artist fall in love on the voyage of the Titanic", titanicGenres));
 
         return movies;
     }
