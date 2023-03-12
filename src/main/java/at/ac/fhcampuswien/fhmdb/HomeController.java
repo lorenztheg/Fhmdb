@@ -9,14 +9,13 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
-import java.util.Comparator;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class HomeController implements Initializable {
     @FXML
@@ -47,12 +46,37 @@ public class HomeController implements Initializable {
         movieListView.setItems(observableMovies);   // set data of observable list to list view
         movieListView.setCellFactory(movieListView -> new MovieCell()); // use custom cell factory to display data
 
+
         // TODO add genre filter items with genreComboBox.getItems().addAll(...)
         genreComboBox.setPromptText("Filter by Genre");
             genreComboBox.getItems().addAll(Genre.values());
 
         // TODO add event handlers to buttons and call the regarding methods
         // either set event handlers in the fxml file (onAction) or add them here
+        searchField.textProperty().addListener((observable, oldField, newField) -> {
+            observableMovies.clear();
+
+            for(Movie movie : allMovies){
+                if(movie.getTitle().toLowerCase(Locale.ROOT).contains(newField.toLowerCase(Locale.ROOT)) ||
+                        movie.getDescription().toLowerCase(Locale.ROOT).contains(newField.toLowerCase(Locale.ROOT))){
+                    observableMovies.add(movie);
+                }
+            }
+        });
+
+        searchBtn.setOnAction(actionEvent -> {
+            Genre selectedGenre = genreComboBox.getSelectionModel().getSelectedItem();
+            if (selectedGenre != null) {
+                observableMovies.clear();
+                for (Movie movie : allMovies) {
+                    if (movie.getGenres().contains(selectedGenre)) {
+                        observableMovies.add(movie);
+                    }
+                }
+            } else {
+                observableMovies.setAll(allMovies);
+            }
+        });
 
         // Sort button example:
         sortBtn.setOnAction(actionEvent -> {
