@@ -70,7 +70,7 @@ public class Movie {
         movies.add(new Movie("Shining", "An isolated hotel becomes a haunting prison for a family.", shiningGenres));
         movies.add(new Movie("Willy Wonka & the Chocolate Factory", "A poor boy wins a golden ticket to tour a magical chocolate factory run by a candy maker", willywonkaGenres));
         movies.add(new Movie("Michael Jacksons's This Is It", "BTS footage of Michael Jackson's preparation for his planned concert series before his untimely death", michaeljacksonGenres));
-        movies.add(new Movie("All Quiet on the Western Front","A group of young german soldiers experience the horros and disillusionment of World War I", allquietGenres));
+        movies.add(new Movie("All Quiet on the Western Front","A group of young german soldiers experience the horrors and disillusionment of World War I", allquietGenres));
         movies.add(new Movie("Toy Story 3","Join Woody, Buzz and their friends as they embark on a daring adventure to escape a daycare center and reunite with their owner", toystoryGenres));
         movies.add(new Movie("Rush", "Two fierce Formula One drivers battle for the world championship in the biographical sports drama", rushGenres));
         movies.add(new Movie("Titanic", "A wealthy woman and a poor artist fall in love on the voyage of the Titanic", titanicGenres));

@@ -45,6 +45,7 @@ public class HomeController implements Initializable {
         // initialize UI stuff
         movieListView.setItems(observableMovies);   // set data of observable list to list view
         movieListView.setCellFactory(movieListView -> new MovieCell()); // use custom cell factory to display data
+        genreComboBox.getItems();
 
 
         // TODO add genre filter items with genreComboBox.getItems().addAll(...)
@@ -66,7 +67,7 @@ public class HomeController implements Initializable {
 
         searchBtn.setOnAction(actionEvent -> {
             Genre selectedGenre = genreComboBox.getSelectionModel().getSelectedItem();
-            if (selectedGenre != null) {
+            if (selectedGenre != null && selectedGenre != Genre.NO_GENRE ) {
                 observableMovies.clear();
                 for (Movie movie : allMovies) {
                     if (movie.getGenres().contains(selectedGenre)) {

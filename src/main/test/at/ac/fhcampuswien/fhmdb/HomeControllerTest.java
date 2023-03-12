@@ -1,12 +1,16 @@
 package at.ac.fhcampuswien.fhmdb;
 
+import at.ac.fhcampuswien.fhmdb.models.Genre;
 import at.ac.fhcampuswien.fhmdb.models.Movie;
 import at.ac.fhcampuswien.fhmdb.models.SortState;
+import com.jfoenix.controls.JFXComboBox;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,69 +30,51 @@ class HomeControllerTest {
     }
 
     @Test
-    void movies_are_sorted_correctly_with_current_sortState_none_then_descending(){
+    void movies_are_sorted_correctly(){
         //GIVEN
         homeController.initializeState();
         homeController.sortState = SortState.NONE;
-
+        List<Movie> expected = new ArrayList<>(homeController.allMovies);
+        Collections.sort(expected, Comparator.comparing(Movie::getTitle));
 
         //WHEN
         homeController.sortMovies();
 
         //THEN
-        List<Movie> expected = Arrays.asList(
-
-        );
-        //assertEquals();
+        List<Movie> actual = new ArrayList<>(homeController.observableMovies);
+        assertEquals(expected,actual);
     }
+
     @Test
-    void movies_are_sorted_correctly_with_current_sortState_descending_then_ascending() {
-            //GIVEN
-            homeController.initializeState();
-            homeController.sortState = SortState.DESCENDING;
-
-
-            //WHEN
-            homeController.sortMovies();
-
-            //THEN
-            List<Movie> expected = Arrays.asList(
-
-            );
-    }
-    @Test
-    void movies_are_sorted_correctly_with_current_sortState_ascending_then_descending() {
-        //GIVEN
+    public void test_search_by_title(){
         homeController.initializeState();
-        homeController.sortState = SortState.ASCENDING;
 
+        // Search for a title that exists
+        homeController.searchField.setText("Django");
+        homeController.searchBtn.fire();
+        assertEquals(1, homeController.observableMovies.size());
+        assertEquals("Django Unchained", homeController.observableMovies.get(0).getTitle());
 
-        //WHEN
-        homeController.sortMovies();
-
-        //THEN
-        List<Movie> expected = Arrays.asList(
-
-        );
+        // Search for a title that doesn't exist
+        homeController.searchField.setText("random title lol xD");
+        homeController.searchBtn.fire();
+        assertEquals(0, homeController.observableMovies.size());
     }
 
     @Test
-    void movies_search_for_title_and_description(){
+    public void test_filter_by_genre(){
+        homeController.genreComboBox.getSelectionModel().select(Genre.WAR);
+        homeController.searchBtn.fire();
+
+        int expectedNumofMovies = 1;
+        List<Movie> expectedMovie = Arrays.asList(new Movie("All Quiet on the Western Front","A group of young german soldiers experience the horrors and disillusionment of World War I", Arrays.asList(Genre.HISTORY, Genre.WAR, Genre.THRILLER)));
+
+        assertEquals(expectedNumofMovies, homeController.observableMovies.size());
+        assertTrue(homeController.observableMovies.containsAll(expectedMovie));
 
     }
 
-    @Test
-    void movies_search_for_title_and_description_ignore_case(){
 
-    }
 
-    @Test
-    void movies_filter_by_title_description_and_genre(){
 
-    }
-
-    @Test
-    void movies_filter_by_title_description_and_genre_with_no_matches(){
-
-    }
 }
